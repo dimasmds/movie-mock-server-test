@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), Observer<MainViewModelState> {
             is Empty -> {
                 progressBar.gone()
                 errorMessage.visible()
-                errorMessage.text = String.format("Movie %s not found", state.query)
+                errorMessage.text = String.format(getString(R.string.empty_message), state.query)
             }
 
             is Result -> {
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), Observer<MainViewModelState> {
             is Error -> {
                 progressBar.gone()
                 errorMessage.visible()
-                errorMessage.text  = String.format("Error: ", state.message)
+                errorMessage.text  = String.format(getString(R.string.error_message), state.message)
             }
         }
     }

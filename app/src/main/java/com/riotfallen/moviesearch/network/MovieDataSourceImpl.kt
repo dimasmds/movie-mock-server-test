@@ -20,7 +20,7 @@ class MovieDataSourceImpl {
 
                 override fun onError(anError: ANError) {
                     Log.d("ERROR", "onError: ${anError.errorBody}", anError)
-                    movieDataSourceCallback.onFailed("Something Error")
+                    movieDataSourceCallback.onFailed(anError.errorDetail)
                 }
 
             })
