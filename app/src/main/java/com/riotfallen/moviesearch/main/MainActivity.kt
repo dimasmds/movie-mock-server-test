@@ -36,11 +36,14 @@ class MainActivity : AppCompatActivity(), Observer<MainViewModelState> {
         when(state) {
             is Search -> {
                 progressBar.visible()
+                errorMessage.gone()
                 mainAdapter.setMovies(mutableListOf())
             }
 
             is Empty -> {
                 progressBar.gone()
+                errorMessage.visible()
+                errorMessage.text = String.format("Movie %s not found", state.query)
             }
 
             is Result -> {
@@ -50,6 +53,8 @@ class MainActivity : AppCompatActivity(), Observer<MainViewModelState> {
 
             is Error -> {
                 progressBar.gone()
+                errorMessage.visible()
+                errorMessage.text  = String.format("Error: ", state.message)
             }
         }
     }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Movie Search</string>
+    <string name="something_went_wrong">Search some movies, please</string>
 </resources>
