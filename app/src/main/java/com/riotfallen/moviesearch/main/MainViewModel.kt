@@ -12,7 +12,7 @@ class MainViewModel : ViewModel() {
 
     fun doSearch(query: String) {
         if(query.isEmpty()) {
-            observerState.postValue(Error("Keyword harus diisi terlebih dahulu"))
+            observerState.postValue(Error("Query must not be empty"))
             return
         }
 

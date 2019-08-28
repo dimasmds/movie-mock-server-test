@@ -12,7 +12,7 @@ fun Context.createResponse(localResponsePath: String = "", responseCode: Int): M
         val response = if (localResponsePath.isNotEmpty()) {
             JSONReader.read(this@createResponse, localResponsePath)
         } else {
-            ""
+            if (responseCode == 401) "Unauthorized" else "Unknown error"
         }
 
         setBody(response)
@@ -25,7 +25,8 @@ fun Int.typeText(stringToBeTyped: String) {
 }
 
 fun Int.isDisplayed() {
-    Espresso.onView(ViewMatchers.withId(this)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    Espresso.onView(ViewMatchers.withId(this))
+        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 }
 
 fun Int.click() {
