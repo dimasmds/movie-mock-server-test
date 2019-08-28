@@ -12,8 +12,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), Observer<MainViewModelState> {
 
-
-
     private lateinit var mainViewModel: MainViewModel
     private lateinit var mainAdapter: MainAdapter
 

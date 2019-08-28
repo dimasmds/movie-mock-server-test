@@ -23,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/debug/assets/'] } }
 }
 
 dependencies {
@@ -39,8 +40,13 @@ dependencies {
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation "com.squareup.okhttp3:okhttp:4.0.1"
     implementation 'com.squareup.picasso:picasso:2.71828'
+    androidTestImplementation 'com.squareup.okhttp3:mockwebserver:4.0.1'
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
